@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  ShakeIt
+
+  Created by Denis Karpenko on 01.03.16.
+  Copyright © 2016 Denis Karpenko. All rights reserved.
+*/
+
+
+"Hi" = "Привет";
+"Share Photos With Friends!" = "Поделись фотографией с друзьями!";
+"Don't Forget Our Hashtag #shakyapp" = "Не забудь наш хэштег #shakyapp";
+"Social Networks" = "Социальные сети";
+"Save to Camera Roll" = "Сохранить в галерею";
+"Cancel"="Отмена";
+"You Have no Instagram:("="У Вас нет инстаграма:(";
+"Attention!"="Важно!";
+"Saved" = "Сохранено";
+"Your Awesome Picture was Successfully Saved" = "Ваша фотка успешно сохранена";
+"Error!"="Ошибка!";
+"Application can't Work without Permission to use the Camera"="Приложение не будет работать без доступа к камере!!";
+"Allow Shaky to Access the Camera in the Phone Settings!"="Разрешите приложению доступ к камере в настройках!";
+"You Don't Have Twitter, Facebook,VK or Instagram" = "У вас нет Инстаграмма, Твиттера, VK или Фейсбука";
+
+
+
