@@ -9,20 +9,33 @@
 import UIKit
 import AVFoundation
 import AssetsLibrary
+import Photos
+import PhotosUI
+import MobileCoreServices
+import AudioToolbox
 
 
+struct FilePaths {
+    static let documentsPath : AnyObject = NSSearchPathForDirectoriesInDomains(.CachesDirectory,.UserDomainMask,true)[0]
+    struct VidToLive {
+        static var livePath = FilePaths.documentsPath.stringByAppendingString("/")
+    }
+}
 
-class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteractionControllerDelegate {
+
+class ViewController: UIViewController,PhotoPickerDelegate,VideoPickerDelegate,UIDocumentInteractionControllerDelegate {
     //pageView
     var frame: CGRect = CGRectMake(0, 0, 0, 0)
     
     var scrollView: UIScrollView?
+    var livePhotoView: PHLivePhotoView?
     let imgCount  = 1
     //
-    
+    var recording = false;
     var LastImg:UIImage?
     @IBOutlet weak var shakePicture: SpringImageView!
     var picker:photoPicker?
+    var videoPicker:videPicker?
     @IBOutlet weak var TipLabel: SpringLabel!
     var images: [UIImage] = []
     @IBOutlet weak var shakeAgain: SpringButton!
@@ -34,19 +47,26 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.becomeFirstResponder()
-        self.picker = photoPicker()
-        self.picker?.delegate = self
+        //self.picker = photoPicker()
+        //self.picker?.delegate = self
+        self.videoPicker = videPicker()
+        self.videoPicker?.delegate = self
         //self.picker?.initializeSession()
         showLabel(2.0)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOfReceivedNotification:", name:"open", object: nil)
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOfReceivedNotification2:", name:"ShortInst", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOfReceivedNotification3:", name:"splash", object: nil)
         
         
         
         //showPageView()
     }
     override func viewDidAppear(animated: Bool) {
-        self.picker?.initializeSession()
+        //self.picker?.initializeSession()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if(defaults.boolForKey("splash")==true){
+        self.videoPicker!.config()
+        }
         //debug
         //self.LastImg = UIImage(named: "ShakY2")!
         //self.imageTapped()
@@ -59,6 +79,9 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
     
     @objc private func methodOfReceivedNotification(notification: NSNotification){
         startShakePhone()
+    }
+    @objc private func methodOfReceivedNotification3(notification: NSNotification){
+        self.videoPicker!.config()
     }
     @objc private func methodOfReceivedNotification2(notification: NSNotification){
         let instagramHooks = "instagram://tag?name=shakyapp"
@@ -79,7 +102,8 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
         
         
             //let toSend = croppIngimage((LastImg)!,toRect: CGRect(x: 0, y: offset, width: LastImg!.size.width, height: LastImg!.size.width))
-            let imageData = UIImageJPEGRepresentation(LastImg!, 100)
+            let imageData = NSData(contentsOfFile: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.JPG"))
+            //let imageData = UIImageJPEGRepresentation(LastImg!, 100)
             let instagramURL = NSURL(string: "instagram://")
             let vkURL = NSURL(string: "vk://")
             let twitterURL = NSURL(string: "twitter://")
@@ -115,32 +139,44 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
 
     // shake Handler
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if(motion == UIEventSubtype.MotionShake && self.images.count<imgCount){
+//        if(motion == UIEventSubtype.MotionShake && self.images.count<imgCount){
+//            self.shake = true
+//            self.images = []
+//            print("shake")
+//            delay(0.5){
+//                if(self.shake){
+//                self.picker?.CapturePhoto()
+//                }
+//            }
+//            
+//        }
+        if(motion == UIEventSubtype.MotionShake && AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) == .Authorized){
+            if(self.shake==false){
+            print("shake started")
+            videoPicker?.makeVideo()
+            self.recording = true
             self.shake = true
-            self.images = []
-            print("shake")
-            delay(0.5){
-                if(self.shake){
-                self.picker?.CapturePhoto()
-                }
             }
-            
         }
     }
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+//        if(motion == UIEventSubtype.MotionShake){
+//            self.shake = false
+//            print("Shake stopped")
+//            //self.picker!.CapturePhoto()
+//            if(self.images.count == imgCount){
+//            showPageView()
+//            }//else try harder
+//            else{
+//                self.images = []
+//                //showLabel(0.5)
+//                //TipLabel.text = "Shake harder!"
+//            }
+//            
+//        }
         if(motion == UIEventSubtype.MotionShake){
             self.shake = false
             print("Shake stopped")
-            //self.picker!.CapturePhoto()
-            if(self.images.count == imgCount){
-            showPageView()
-            }//else try harder
-            else{
-                self.images = []
-                //showLabel(0.5)
-                //TipLabel.text = "Shake harder!"
-            }
-            
         }
 
     }
@@ -156,6 +192,11 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
         else if(self.images.count == imgCount){
             showPageView()
         }
+    }
+    func updateVideo() {
+        if(self.shake){
+        self.showLivePhoto()
+        }// else print error
     }
     func startShakePhone(){
         self.shakePicture.stopAnimating()
@@ -178,9 +219,57 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
         
         
     }
+    
+    func showLivePhoto(){
+        //let mult = self.LastImg!.size.width/self.view.frame.size.width
+        
+        let offset = self.view.frame.size.height*0.125
+        let newframe = CGRect(x: 0, y: offset, width: self.view.frame.width, height: self.view.frame.height*0.75)
+        self.livePhotoView = PHLivePhotoView(frame: newframe)
+        //loadVideoWithVideoURL(NSBundle.mainBundle().URLForResource("video", withExtension: "m4v")!)
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("liveTapped"))
+        self.livePhotoView?.userInteractionEnabled = true
+        self.livePhotoView?.addGestureRecognizer(tapGestureRecognizer)
+        
+        loadVideoWithVideoURL((videoPicker?.link)!)
+        self.view.addSubview(livePhotoView!)
+        
+    }
+    
+    func liveTapped(){
+        let alertController = UIAlertController(title: "Share Photos With Friends!".localized, message:"Don't Forget Our Hashtag #shakyapp".localized, preferredStyle: .Alert)
+        let SocialNetworks = UIAlertAction(title: "Social Networks".localized, style: .Default) { (action) in
+            self.shareToInstagram()
+        }
+        let SaveToGallery = UIAlertAction(title: "Save LivePhoto to Camera Roll".localized, style: .Default) { (action) in
+            self.exportLivePhoto()
+        }
+        let SaveSimpleToGallery = UIAlertAction(title: "Save Simple Photo to Camera Roll".localized, style: .Default) { (action) in
+            UIImageWriteToSavedPhotosAlbum(UIImage(data: NSData(contentsOfFile: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.JPG"))!)!, self, "image:didFinishSavingWithError:contextInfo:", nil)
+            
+        }
+        let cncl = UIAlertAction(title: "Cancel".localized, style: .Cancel) { (action) in
+            
+        }
+        
+        alertController.addAction(SocialNetworks)
+        alertController.addAction(SaveToGallery)
+        alertController.addAction(cncl)
+        alertController.addAction(SaveSimpleToGallery)
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
+
+        
+    }
+    
+    
+    
     func showPageView(){
         self.scrollView = nil
-        LastImg = images[Int(0)]
+        //LastImg = images[Int(0)]
+        self.showLivePhoto()
+        if false{
         let mult = self.LastImg!.size.width/self.view.frame.size.width
         let offset = (self.view.frame.size.height - self.LastImg!.size.height/mult)/2
         let newframe = CGRect(x: self.view.frame.origin.x, y: offset, width:self.LastImg!.size.width/mult, height: self.LastImg!.size.height/mult)
@@ -210,6 +299,7 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
         self.scrollView?.addGestureRecognizer(tapGestureRecognizer)
         self.images = []
     }
+        }
         
     }
     
@@ -320,6 +410,82 @@ class ViewController: UIViewController,PhotoPickerDelegate,UIDocumentInteraction
             ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             presentViewController(ac, animated: true, completion: nil)
         }
+    }
+    
+    
+    
+    
+    
+    //new method special for live photos!!
+    func loadVideoWithVideoURL(videoURL: NSURL) {
+        livePhotoView?.livePhoto = nil
+        let asset = AVURLAsset(URL: videoURL)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+        let time = NSValue(CMTime: CMTimeMakeWithSeconds(CMTimeGetSeconds(asset.duration)/2, asset.duration.timescale))
+        generator.generateCGImagesAsynchronouslyForTimes([time]) { [weak self] _, image, _, _, _ in
+            if let image = image,data = UIImagePNGRepresentation(self!.ModernizeImage(UIImage(CGImage: image))) {
+                let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+                let imageURL = urls[0].URLByAppendingPathComponent("image.jpg")
+                data.writeToURL(imageURL, atomically: true)
+                let image = imageURL.path
+                let mov = videoURL.path
+                let output = FilePaths.VidToLive.livePath
+                let assetIdentifier = NSUUID().UUIDString
+                let _ = try? NSFileManager.defaultManager().createDirectoryAtPath(output, withIntermediateDirectories: true, attributes: nil)
+                do {
+                    try NSFileManager.defaultManager().removeItemAtPath(output.stringByAppendingString("/IMG.JPG"))
+                    try NSFileManager.defaultManager().removeItemAtPath(output.stringByAppendingString("/IMG.MOV"))
+                    
+                } catch {
+                    
+                }
+                JPEG(path: image!).write(output.stringByAppendingString("/IMG.JPG"),
+                                         assetIdentifier: assetIdentifier)
+                QuickTimeMov(path: mov!).write(output.stringByAppendingString("/IMG.MOV"),
+                                               assetIdentifier: assetIdentifier)
+                
+                //self?.livePhotoView.livePhoto = LPDLivePhoto.livePhotoWithImageURL(NSURL(fileURLWithPath: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.JPG")), videoURL: NSURL(fileURLWithPath: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.MOV")))
+                //self?.exportLivePhoto()
+                PHLivePhoto.requestLivePhotoWithResourceFileURLs([ NSURL(fileURLWithPath: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.MOV")), NSURL(fileURLWithPath: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.JPG"))],
+                                                                 placeholderImage: nil,
+                                                                 targetSize: CGSizeMake(2000, 2000),
+                                                                 contentMode: PHImageContentMode.AspectFill,
+                                                                 resultHandler: { (livePhoto, info) -> Void in
+                                                                    self?.livePhotoView?.livePhoto = livePhoto
+                                                                    AudioServicesPlaySystemSound(1108)
+                                                                    self?.recording = false
+                                                                    //self?.exportLivePhoto()
+                })
+            }
+        }
+    }
+
+    
+    
+    
+    func exportLivePhoto () {
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({ () -> Void in
+            let creationRequest = PHAssetCreationRequest.creationRequestForAsset()
+            let options = PHAssetResourceCreationOptions()
+            
+            
+            creationRequest.addResourceWithType(PHAssetResourceType.PairedVideo, fileURL: NSURL(fileURLWithPath: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.MOV")), options: options)
+            creationRequest.addResourceWithType(PHAssetResourceType.Photo, fileURL: NSURL(fileURLWithPath: FilePaths.VidToLive.livePath.stringByAppendingString("/IMG.JPG")), options: options)
+            
+            }, completionHandler: { (success, error) -> Void in
+                if error == nil {
+                    let ac = UIAlertController(title: "Saved".localized, message: "Your Awesome Photo was Successfully Saved".localized, preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
+                } else {
+                    let ac = UIAlertController(title: "Error!".localized, message: error?.localizedDescription, preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(ac, animated: true, completion: nil)
+                }
+                
+        })
+        
     }
     
     

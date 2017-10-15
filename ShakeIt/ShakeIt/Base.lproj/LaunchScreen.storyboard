@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -19,17 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="PhoneLogo" translatesAutoresizingMaskIntoConstraints="NO" id="whH-q2-RjD">
+                                <rect key="frame" x="55" y="125" width="210" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="whH-q2-RjD" secondAttribute="height" multiplier="1:1" id="mBu-4s-Y3C"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShakYPerfect" translatesAutoresizingMaskIntoConstraints="NO" id="KTS-1w-S2c">
                                 <rect key="frame" x="63" y="400" width="195" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="86" id="F36-Lf-xW6"/>
                                     <constraint firstAttribute="width" constant="195" id="h3K-dG-4Dk"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="PhoneLogo" translatesAutoresizingMaskIntoConstraints="NO" id="whH-q2-RjD">
-                                <rect key="frame" x="55" y="125" width="210" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="whH-q2-RjD" secondAttribute="height" multiplier="1:1" id="mBu-4s-Y3C"/>
                                 </constraints>
                             </imageView>
                         </subviews>

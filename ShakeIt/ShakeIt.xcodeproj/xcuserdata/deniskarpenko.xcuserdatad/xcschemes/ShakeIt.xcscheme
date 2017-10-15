@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "50EEA9EC1C71006200916176"
-               BuildableName = "ShakeIt.app"
+               BuildableName = "ShakY.app"
                BlueprintName = "ShakeIt"
                ReferencedContainer = "container:ShakeIt.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50EEA9EC1C71006200916176"
-            BuildableName = "ShakeIt.app"
+            BuildableName = "ShakY.app"
             BlueprintName = "ShakeIt"
             ReferencedContainer = "container:ShakeIt.xcodeproj">
          </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50EEA9EC1C71006200916176"
-            BuildableName = "ShakeIt.app"
+            BuildableName = "ShakY.app"
             BlueprintName = "ShakeIt"
             ReferencedContainer = "container:ShakeIt.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50EEA9EC1C71006200916176"
-            BuildableName = "ShakeIt.app"
+            BuildableName = "ShakY.app"
             BlueprintName = "ShakeIt"
             ReferencedContainer = "container:ShakeIt.xcodeproj">
          </BuildableReference>

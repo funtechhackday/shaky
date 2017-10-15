@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42FEC02A41C3089D3C5CF2A9 /* Pods_ShakeIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7708D9E980E5082C8CE2A39F /* Pods_ShakeIt.framework */; };
+		5004AB551CD3D52E00EB38B7 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5004AB541CD3D52D00EB38B7 /* WelcomeController.swift */; };
+		5004AB571CD3D59200EB38B7 /* test.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5004AB561CD3D59200EB38B7 /* test.mov */; };
 		500F44B91C8337E300CD4354 /* UIimageEffectsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F44B81C8337E300CD4354 /* UIimageEffectsExtension.swift */; };
 		500F44C21C84F55F00CD4354 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 500F44C41C84F55F00CD4354 /* Localizable.strings */; };
 		501DB13B1C74C8F50059C0A3 /* photoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB13A1C74C8F50059C0A3 /* photoPicker.swift */; };
@@ -42,6 +45,10 @@
 		501DB17B1C754D2C0059C0A3 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB15E1C754D2C0059C0A3 /* TransitionManager.swift */; };
 		501DB17C1C754D2C0059C0A3 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB15F1C754D2C0059C0A3 /* TransitionZoom.swift */; };
 		501DB17D1C754D2C0059C0A3 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501DB1601C754D2C0059C0A3 /* UnwindSegue.swift */; };
+		50B71C391CD2B17500A48239 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B71C381CD2B17500A48239 /* AudioToolbox.framework */; };
+		50E7563A1CCFB33B0079D3E3 /* JPEG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E756381CCFB33B0079D3E3 /* JPEG.swift */; };
+		50E7563B1CCFB33B0079D3E3 /* QuickTimeMov.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E756391CCFB33B0079D3E3 /* QuickTimeMov.swift */; };
+		50E7563F1CD13D220079D3E3 /* videPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E7563E1CD13D220079D3E3 /* videPicker.swift */; };
 		50EEA9F11C71006200916176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EEA9F01C71006200916176 /* AppDelegate.swift */; };
 		50EEA9F31C71006200916176 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EEA9F21C71006200916176 /* ViewController.swift */; };
 		50EEA9F61C71006200916176 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50EEA9F41C71006200916176 /* Main.storyboard */; };
@@ -51,6 +58,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B1F0CEA00BBFA393C9B1D24 /* Pods-ShakeIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShakeIt/Pods-ShakeIt.release.xcconfig"; sourceTree = "<group>"; };
+		5004AB541CD3D52D00EB38B7 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		5004AB561CD3D59200EB38B7 /* test.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test.mov; sourceTree = "<group>"; };
 		500F44B81C8337E300CD4354 /* UIimageEffectsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIimageEffectsExtension.swift; sourceTree = "<group>"; };
 		500F44C01C84F49100CD4354 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		500F44C11C84F49100CD4354 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -88,7 +98,11 @@
 		501DB15E1C754D2C0059C0A3 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		501DB15F1C754D2C0059C0A3 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		501DB1601C754D2C0059C0A3 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
-		50EEA9ED1C71006200916176 /* ShakeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50B71C381CD2B17500A48239 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		50E756381CCFB33B0079D3E3 /* JPEG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPEG.swift; sourceTree = "<group>"; };
+		50E756391CCFB33B0079D3E3 /* QuickTimeMov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTimeMov.swift; sourceTree = "<group>"; };
+		50E7563E1CD13D220079D3E3 /* videPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = videPicker.swift; sourceTree = "<group>"; };
+		50EEA9ED1C71006200916176 /* ShakY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EEA9F01C71006200916176 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50EEA9F21C71006200916176 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50EEA9F51C71006200916176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +110,8 @@
 		50EEA9FA1C71006200916176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50EEA9FC1C71006200916176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50EEAA021C71245A00916176 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		57BA45BB7EF4C0330B59B17D /* Pods-ShakeIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakeIt/Pods-ShakeIt.debug.xcconfig"; sourceTree = "<group>"; };
+		7708D9E980E5082C8CE2A39F /* Pods_ShakeIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakeIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +119,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B71C391CD2B17500A48239 /* AudioToolbox.framework in Frameworks */,
 				50EEAA031C71245B00916176 /* AVFoundation.framework in Frameworks */,
+				42FEC02A41C3089D3C5CF2A9 /* Pods_ShakeIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,13 +182,15 @@
 				50EEAA041C71246300916176 /* frameworks */,
 				50EEA9EF1C71006200916176 /* ShakeIt */,
 				50EEA9EE1C71006200916176 /* Products */,
+				559A61CF7CCF52494626C45E /* Pods */,
+				CB4A142AD8BFA44697B4D180 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		50EEA9EE1C71006200916176 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50EEA9ED1C71006200916176 /* ShakeIt.app */,
+				50EEA9ED1C71006200916176 /* ShakY.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,8 +206,13 @@
 				50EEA9FC1C71006200916176 /* Info.plist */,
 				50EEA9F41C71006200916176 /* Main.storyboard */,
 				501DB13A1C74C8F50059C0A3 /* photoPicker.swift */,
+				5004AB561CD3D59200EB38B7 /* test.mov */,
+				50E756381CCFB33B0079D3E3 /* JPEG.swift */,
+				50E756391CCFB33B0079D3E3 /* QuickTimeMov.swift */,
 				501DB13C1C7524290059C0A3 /* UIColor+MyAppColor.swift */,
 				500F44C41C84F55F00CD4354 /* Localizable.strings */,
+				50E7563E1CD13D220079D3E3 /* videPicker.swift */,
+				5004AB541CD3D52D00EB38B7 /* WelcomeController.swift */,
 			);
 			path = ShakeIt;
 			sourceTree = "<group>";
@@ -195,9 +220,27 @@
 		50EEAA041C71246300916176 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50B71C381CD2B17500A48239 /* AudioToolbox.framework */,
 				50EEAA021C71245A00916176 /* AVFoundation.framework */,
 			);
 			name = frameworks;
+			sourceTree = "<group>";
+		};
+		559A61CF7CCF52494626C45E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57BA45BB7EF4C0330B59B17D /* Pods-ShakeIt.debug.xcconfig */,
+				2B1F0CEA00BBFA393C9B1D24 /* Pods-ShakeIt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CB4A142AD8BFA44697B4D180 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7708D9E980E5082C8CE2A39F /* Pods_ShakeIt.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,9 +250,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50EEA9FF1C71006200916176 /* Build configuration list for PBXNativeTarget "ShakeIt" */;
 			buildPhases = (
+				13F45678331255B0E882CA8C /* Check Pods Manifest.lock */,
 				50EEA9E91C71006200916176 /* Sources */,
 				50EEA9EA1C71006200916176 /* Frameworks */,
 				50EEA9EB1C71006200916176 /* Resources */,
+				4D5268ABECA634A738A55BD2 /* Embed Pods Frameworks */,
+				12DD8F43A76C1DB6E03A20AB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,7 +263,7 @@
 			);
 			name = ShakeIt;
 			productName = ShakeIt;
-			productReference = 50EEA9ED1C71006200916176 /* ShakeIt.app */;
+			productReference = 50EEA9ED1C71006200916176 /* ShakY.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -263,6 +309,7 @@
 				501DB1431C75478F0059C0A3 /* hitchhiker.regular.ttf in Resources */,
 				50EEA9F81C71006200916176 /* Assets.xcassets in Resources */,
 				501DB1661C754D2C0059C0A3 /* LoadingView.xib in Resources */,
+				5004AB571CD3D59200EB38B7 /* test.mov in Resources */,
 				500F44C21C84F55F00CD4354 /* Localizable.strings in Resources */,
 				501DB1421C75478F0059C0A3 /* farray.regular.otf in Resources */,
 				50EEA9F61C71006200916176 /* Main.storyboard in Resources */,
@@ -271,19 +318,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12DD8F43A76C1DB6E03A20AB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShakeIt/Pods-ShakeIt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		13F45678331255B0E882CA8C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D5268ABECA634A738A55BD2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShakeIt/Pods-ShakeIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50EEA9E91C71006200916176 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				501DB13B1C74C8F50059C0A3 /* photoPicker.swift in Sources */,
+				50E7563B1CCFB33B0079D3E3 /* QuickTimeMov.swift in Sources */,
 				501DB1691C754D2C0059C0A3 /* DesignableImageView.swift in Sources */,
+				50E7563A1CCFB33B0079D3E3 /* JPEG.swift in Sources */,
 				501DB16E1C754D2C0059C0A3 /* DesignableTabBarController.swift in Sources */,
 				501DB1791C754D2C0059C0A3 /* SpringTextView.swift in Sources */,
+				5004AB551CD3D52E00EB38B7 /* WelcomeController.swift in Sources */,
 				501DB1621C754D2C0059C0A3 /* AsyncButton.swift in Sources */,
 				501DB16C1C754D2C0059C0A3 /* DesignableTextView.swift in Sources */,
 				501DB17D1C754D2C0059C0A3 /* UnwindSegue.swift in Sources */,
 				501DB1771C754D2C0059C0A3 /* SpringLabel.swift in Sources */,
+				50E7563F1CD13D220079D3E3 /* videPicker.swift in Sources */,
 				501DB1701C754D2C0059C0A3 /* KeyboardLayoutConstraint.swift in Sources */,
 				501DB13D1C7524290059C0A3 /* UIColor+MyAppColor.swift in Sources */,
 				501DB1741C754D2C0059C0A3 /* SpringAnimation.swift in Sources */,
@@ -430,31 +529,33 @@
 		};
 		50EEAA001C71006200916176 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57BA45BB7EF4C0330B59B17D /* Pods-ShakeIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ShakeIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "";
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = luckyAss.Shaky;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShakY;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		50EEAA011C71006200916176 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B1F0CEA00BBFA393C9B1D24 /* Pods-ShakeIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ShakeIt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = luckyAss.Shaky;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShakY;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

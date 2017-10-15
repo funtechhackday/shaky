@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]//!!
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if(defaults.boolForKey("splash")==false){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let logcontroller = storyboard.instantiateViewControllerWithIdentifier("Welcome")
+        let view = logcontroller.view;
+        self.window?.makeKeyAndVisible()
+        delay(1.5){self.window?.rootViewController?.presentViewController(logcontroller, animated: false, completion: nil)
+        }
+        }
+        
         // Override point for customization after application launch.
         return true
     }

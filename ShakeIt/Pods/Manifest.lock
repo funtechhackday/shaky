@@ -1,0 +1,10 @@
+PODS:
+  - VideoSplashKit (1.1.0)
+
+DEPENDENCIES:
+  - VideoSplashKit
+
+SPEC CHECKSUMS:
+  VideoSplashKit: 0aa63d0bb37c5bd357de3e6a2a13dea5acad4d66
+
+COCOAPODS: 0.39.0

@@ -7,6 +7,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="farray.regular.otf">
+            <string>FARRAY-Regular</string>
+            <string>FARRAY-Regular</string>
+            <string>FARRAY-Regular</string>
+        </mutableArray>
         <mutableArray key="hitchhiker.regular.ttf">
             <string>Hitchhiker</string>
             <string>Hitchhiker</string>
@@ -124,12 +129,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="291"/>
+            <point key="canvasLocation" x="-29" y="291"/>
+        </scene>
+        <!--Welcome Controller-->
+        <scene sceneID="GLy-YL-IWe">
+            <objects>
+                <viewController storyboardIdentifier="Welcome" id="Bu9-H4-siN" customClass="WelcomeController" customModule="ShakeIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kOb-lG-i4x"/>
+                        <viewControllerLayoutGuide type="bottom" id="coq-DB-QuW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v0y-3b-9ex">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Shake Your phone and make Awesome LivePhotos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="CTY-3W-i92">
+                                <rect key="frame" x="22" y="74" width="278" height="59"/>
+                                <fontDescription key="fontDescription" name="FARRAY-Regular" family="FARRAY" pointSize="17"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tap to Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="OpL-aP-z3H">
+                                <rect key="frame" x="82" y="169" width="157" height="49"/>
+                                <fontDescription key="fontDescription" name="FARRAY-Regular" family="FARRAY" pointSize="19"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tap stronger to watch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="pmb-qU-I7z">
+                                <rect key="frame" x="17" y="252" width="286" height="64"/>
+                                <fontDescription key="fontDescription" name="FARRAY-Regular" family="FARRAY" pointSize="19"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8Z-pV-qgZ">
+                                <rect key="frame" x="76" y="443" width="168" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="GzN-Kr-AWD"/>
+                                    <constraint firstAttribute="width" constant="168" id="Ueo-CI-nSQ"/>
+                                </constraints>
+                                <state key="normal" image="go">
+                                    <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <action selector="Start:" destination="Bu9-H4-siN" eventType="touchUpInside" id="TND-8N-uOi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B8Z-pV-qgZ" firstAttribute="centerX" secondItem="v0y-3b-9ex" secondAttribute="centerX" id="1MI-af-AwL"/>
+                            <constraint firstItem="pmb-qU-I7z" firstAttribute="centerX" secondItem="v0y-3b-9ex" secondAttribute="centerX" id="31F-TW-CqW"/>
+                            <constraint firstItem="OpL-aP-z3H" firstAttribute="centerX" secondItem="v0y-3b-9ex" secondAttribute="centerX" id="44p-rr-ypY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OpL-aP-z3H" secondAttribute="trailing" constant="61" id="9fN-k0-00k"/>
+                            <constraint firstItem="coq-DB-QuW" firstAttribute="top" secondItem="B8Z-pV-qgZ" secondAttribute="bottom" constant="47" id="BZO-iB-rdi"/>
+                            <constraint firstItem="OpL-aP-z3H" firstAttribute="leading" secondItem="v0y-3b-9ex" secondAttribute="leadingMargin" constant="62" id="PWS-l4-bdh"/>
+                            <constraint firstItem="CTY-3W-i92" firstAttribute="centerX" secondItem="v0y-3b-9ex" secondAttribute="centerX" id="TGy-Mn-Wqs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pmb-qU-I7z" secondAttribute="trailing" constant="-3" id="hMN-As-fkK"/>
+                            <constraint firstItem="pmb-qU-I7z" firstAttribute="leading" secondItem="v0y-3b-9ex" secondAttribute="leadingMargin" constant="-3" id="hdj-zx-gvk"/>
+                            <constraint firstItem="CTY-3W-i92" firstAttribute="leading" secondItem="v0y-3b-9ex" secondAttribute="leadingMargin" constant="2" id="p5v-lC-Pej"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CTY-3W-i92" secondAttribute="trailing" id="sg0-C3-bwe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dme-P6-ssV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="304"/>
         </scene>
     </scenes>
     <resources>
         <image name="PhoneLogo" width="1024" height="1024"/>
         <image name="ShakYPerfect" width="700" height="300"/>
+        <image name="go" width="426" height="235"/>
         <image name="instagram" width="512" height="512"/>
     </resources>
 </document>
